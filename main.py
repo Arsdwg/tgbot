@@ -22,17 +22,15 @@ async def message(message: types.Message):
 
 @dp.message(Command('pic'))
 async def send_pic(message: types.Message):
-    tett = '/Users/arsenij/PycharmProjects/PROBNIK/image'
-    tett_list = os.listdir(tett)
-    tett_path = os.path.join(tett, choice(tett_list))
+    tett_list = os.listdir('image')
+    tett_path = os.path.join('image', choice(tett_list))
     file = types.FSInputFile(tett_path)
     await message.answer_photo(photo=file)
 
 @dp.message(Command('myinfo'))
 async def myinfo(message: types.Message):
-    tett = '/Users/arsenij/PycharmProjects/PROBNIK/image'
-    tett_list = os.listdir(tett)
-    tett_path = os.path.join(tett, choice(tett_list))
+    tett_list = os.listdir('image')
+    tett_path = os.path.join('image', choice(tett_list))
     file = types.FSInputFile(tett_path)
     await message.answer_photo(photo=file, caption=f"I found you )"
                                                    f" You're {message.from_user.first_name}"
